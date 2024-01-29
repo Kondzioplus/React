@@ -3,7 +3,18 @@ import './App.css'
 import User from './User/User'
 
 class App extends Component {
+
+  active = 'Active';
+  inactive = 'Inactive';
+ // STATE do przechowywania naszych danych
+  state = {
+    username: "Kondzio",
+    role: "admin",
+    active: true
+  } 
+  
   render(){
+
     return (
       <div className='App'>
       <h1 className='Red-color'>Hello, I am a react App</h1>
@@ -17,7 +28,9 @@ class App extends Component {
         <input className='FormElement' type='checkbox' id='active'/>
         <button className='FormButton'>Show user</button>
       </div>
-      <User username = "Kondzio" role = "admin" >active</User>
+
+      
+      <User username = {this.state.username} role = {this.state.role} >{this.state.active ? this.active : this.inactive }</User>
       
       </div>
       // React.createElement('div', null, React.createElement('h1', {className: 'Red-color'}, 'Hello, I am a react App))
