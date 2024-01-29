@@ -27,12 +27,24 @@ class App extends Component {
       }
     );
   }
+  // eventy
+  onCopyHandler = () => {
+    console.log("onCopyHandler");
+  }
+
+  onMouseEnter = () => {
+    console.log("onMouseEnter");
+  }
+
+  onMouseLeave = () => {
+    console.log("onMouseLeave");
+  }
   
   render(){
 
     return (
       <div className='App'>
-      <h1 className='Red-color'>Hello, I am a react App</h1>
+      <h1 className='Red-color' onCopy={this.onCopyHandler} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>Hello, I am a react App</h1>
       
       <div className='FormContainer'>
         <label className='FormLabel'>Username</label>
