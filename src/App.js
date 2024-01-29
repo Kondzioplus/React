@@ -12,6 +12,21 @@ class App extends Component {
     role: "admin",
     active: true
   } 
+  // metoda wywołujaca ONCLICK
+  setUserDataHandler = () => {
+    console.log("triggernig setUserDataHandler");
+    const username = document.getElementById("username").value;
+    const role = document.getElementById("role").value;
+    const active = document.getElementById("active").checked;
+
+    this.setState(
+      {
+        username: username,
+        role: role,
+        active: active
+      }
+    );
+  }
   
   render(){
 
@@ -26,10 +41,10 @@ class App extends Component {
         <input className='FormElement' type='text' id='role' />
         <label className='FormLabel'>Active</label>
         <input className='FormElement' type='checkbox' id='active'/>
-        <button className='FormButton'>Show user</button>
+        <button onClick={this.setUserDataHandler} className='FormButton'>Show user</button>
       </div>
 
-      
+
       <User username = {this.state.username} role = {this.state.role} >{this.state.active ? this.active : this.inactive }</User>
       
       </div>
