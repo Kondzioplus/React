@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css'
 import User from './User/User'
+import Customer from './Customer/Customer'
 
 class App extends Component {
 
@@ -58,6 +59,8 @@ class App extends Component {
 
 
       <User username = {this.state.username} role = {this.state.role} >{this.state.active ? this.active : this.inactive }</User>
+
+      <Customer />
       
       </div>
       // React.createElement('div', null, React.createElement('h1', {className: 'Red-color'}, 'Hello, I am a react App))
