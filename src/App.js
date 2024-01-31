@@ -54,11 +54,11 @@ class App extends Component {
         <input className='FormElement' type='text' id='role' />
         <label className='FormLabel'>Active</label>
         <input className='FormElement' type='checkbox' id='active'/>
-        <button onClick={this.setUserDataHandler} className='FormButton'>Show user</button>
+        
       </div>
 
 
-      <User username = {this.state.username} role = {this.state.role} >{this.state.active ? this.active : this.inactive }</User>
+      <User username = {this.state.username} role = {this.state.role} buttonClick={() => this.setUserDataHandler()} >{this.state.active ? this.active : this.inactive }</User>
 
       <Customer />
       
