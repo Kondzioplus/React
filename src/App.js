@@ -21,14 +21,20 @@ class App extends Component {
     this.setState({showArticles: !doesShow});//przeciwieństwo!
   }
  
+  deleteArticleHandler = (articleIndex) => {
+    const articles = this.state.articles;
+    articles.splice(articleIndex, 1);
+    this.setState({articles: articles});
+  }
+
   render(){
 
    
     let articles = null;
 
     if (this.state.showArticles){
-      articles = this.state.articles.map(article => {
-        return(<Article title={article.title} content={article.content} />)
+      articles = this.state.articles.map((article, index) => {
+        return(<Article title={article.title} content={article.content} deleteClick={() => this.deleteArticleHandler(index)} />)
       })
     }
 
