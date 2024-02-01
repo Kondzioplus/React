@@ -22,19 +22,23 @@ class App extends Component {
  
   render(){
 
+   
+    let articles = null;
+
+    if (this.state.showArticles){
+      articles = <div> 
+      <Article title={this.state.articles[0].title} content={this.state.articles[0].content} />
+      <Article title={this.state.articles[1].title} content={this.state.articles[1].content} />
+      <Article title={this.state.articles[2].title} content={this.state.articles[2].content} />
+      </div>;
+    }
+
     return (
       <div className='App'>
         <button onClick={this.toggleArticlesHandler}>Toggle Article</button>
-        { this.state.showArticles ?//warunek
-        (<div> 
-        <Article title={this.state.articles[0].title} content={this.state.articles[0].content} />
-        <Article title={this.state.articles[1].title} content={this.state.articles[1].content} />
-        <Article title={this.state.articles[2].title} content={this.state.articles[2].content} />
-        </div>) : null
-        }
+        {articles}
       </div>
-     
-    );
+     );
   }
 }
 
