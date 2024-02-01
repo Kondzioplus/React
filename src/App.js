@@ -11,6 +11,7 @@ class App extends Component {
       {title: "title1", content: "this is content 1"},
       {title: "title2", content: "this is content 2"},
       {title: "title3", content: "this is content 3"},
+      {title: "title4", content: "this is content 4"},
     ],
     showArticles: false
 } 
@@ -26,11 +27,9 @@ class App extends Component {
     let articles = null;
 
     if (this.state.showArticles){
-      articles = <div> 
-      <Article title={this.state.articles[0].title} content={this.state.articles[0].content} />
-      <Article title={this.state.articles[1].title} content={this.state.articles[1].content} />
-      <Article title={this.state.articles[2].title} content={this.state.articles[2].content} />
-      </div>;
+      articles = this.state.articles.map(article => {
+        return(<Article title={article.title} content={article.content} />)
+      })
     }
 
     return (
