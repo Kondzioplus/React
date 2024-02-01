@@ -1,69 +1,39 @@
 import React, { Component } from 'react';
 import './App.css'
-import User from './User/User'
-import Customer from './Customer/Customer'
+import Article from './Article/Article';
 
 class App extends Component {
 
-  active = 'Active';
-  inactive = 'Inactive';
+  
  // STATE do przechowywania naszych danych
   state = {
-    username: "Kondzio",
-    role: "admin",
-    active: true
-  } 
-  // metoda wywołujaca ONCLICK
-  setUserDataHandler = () => {
-    console.log("triggernig setUserDataHandler");
-    const username = document.getElementById("username").value;
-    const role = document.getElementById("role").value;
-    const active = document.getElementById("active").checked;
+    articles:[
+      {title: "title1", content: "this is content 1"},
+      {title: "title2", content: "this is content 2"},
+      {title: "title3", content: "this is content 3"},
+    ],
+    showArticles: false
+} 
 
-    this.setState(
-      {
-        username: username,
-        role: role,
-        active: active
-      }
-    );
+  toggleArticlesHandler = () => {
+    const doesShow = this.state.showArticles;
+    this.setState({showArticles: !doesShow});//przeciwieństwo!
   }
-  // eventy
-  onCopyHandler = () => {
-    console.log("onCopyHandler");
-  }
-
-  onMouseEnter = () => {
-    console.log("onMouseEnter");
-  }
-
-  onMouseLeave = () => {
-    console.log("onMouseLeave");
-  }
-  
+ 
   render(){
 
     return (
       <div className='App'>
-      <h1 className='Red-color' onCopy={this.onCopyHandler} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>Hello, I am a react App</h1>
-      
-      <div className='FormContainer'>
-        <label className='FormLabel'>Username</label>
-        <input className='FormElement' type='text' id='username' />
-        <label className='FormLabel'>Role</label>
-        <input className='FormElement' type='text' id='role' />
-        <label className='FormLabel'>Active</label>
-        <input className='FormElement' type='checkbox' id='active'/>
-        
+        <button onClick={this.toggleArticlesHandler}>Toggle Article</button>
+        { this.state.showArticles ?//warunek
+        (<div> 
+        <Article title={this.state.articles[0].title} content={this.state.articles[0].content} />
+        <Article title={this.state.articles[1].title} content={this.state.articles[1].content} />
+        <Article title={this.state.articles[2].title} content={this.state.articles[2].content} />
+        </div>) : null
+        }
       </div>
-
-
-      <User username = {this.state.username} role = {this.state.role} buttonClick={() => this.setUserDataHandler()} >{this.state.active ? this.active : this.inactive }</User>
-
-      <Customer />
-      
-      </div>
-      // React.createElement('div', null, React.createElement('h1', {className: 'Red-color'}, 'Hello, I am a react App))
+     
     );
   }
 }
