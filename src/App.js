@@ -53,6 +53,8 @@ class App extends Component {
          key={article.id} 
         />);
       })
+      //dynamiczne przypisanie stylu
+      buttonStyles.border = '2px solid red';
     }
 
     return (
