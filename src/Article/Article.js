@@ -1,8 +1,9 @@
 import React from 'react';
+import './Article.css';
 
 const Article = props => {
     return(
-        <div>
+        <div className='Article'>
             <h2>{props.title}</h2>
             <p>{props.content}</p>
             <button onClick={props.deleteClick}>Delete article</button>
