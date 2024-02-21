@@ -29,6 +29,17 @@ class App extends Component {
   }
 
   render(){
+    const buttonStyles = {
+      backgroundColor: 'white',
+      border: '2px solid #326647',
+      color: 'black',
+      padding: '10px 16px',
+      textAlign: 'center',
+      fontSize: '20px',
+      cursor: 'pointer',
+      marginTop: '10px',
+      marginBottom: '10px'
+    }
 
    
     let articles = null;
@@ -46,7 +57,9 @@ class App extends Component {
 
     return (
       <div className='App'>
-        <button onClick={this.toggleArticlesHandler}>Toggle Article</button>
+        <button 
+        style={buttonStyles}
+        onClick={this.toggleArticlesHandler}>Toggle Article</button>
         {articles}
       </div>
      );
