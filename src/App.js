@@ -56,13 +56,24 @@ class App extends Component {
       //dynamiczne przypisanie stylu
       buttonStyles.border = '2px solid red';
     }
+// sprawdzanie ilosci atrykułów
+    const articleStyles = [];
+    if (this.state.articles.length ===1 ) {
+      articleStyles.push('OneArticle');//jeśli został 1 artykuł to pogrób czcionke
+    }
+    if (this.state.articles.length >= 4) {
+      articleStyles.push('GreenArticles');//jeśli jest 4 lub wiecej artykułów to zielony kolor
+    } else articleStyles.push('OrangeArticles');//w pozostałych sytuacjach kolor pomarańczowy
 
     return (
       <div className='App'>
         <button 
         style={buttonStyles}
         onClick={this.toggleArticlesHandler}>Toggle Article</button>
+        <div className={articleStyles.join(' ')}>
         {articles}
+        </div>
+        
       </div>
      );
   }
