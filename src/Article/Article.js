@@ -1,5 +1,6 @@
 import React from 'react';
 import './Article.css';
+import Radium from 'radium';
 
 const Article = props => {
     return(
@@ -13,4 +14,4 @@ const Article = props => {
     );
 }
 
-export default Article;
+export default Radium(Article);
