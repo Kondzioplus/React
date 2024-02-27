@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css'
 import Article from './Article/Article';
-import Radium from 'radium';
+import Radium, { StyleRoot } from 'radium'; //dodatkowy import StyleRoot dla @media
 
 class App extends Component {
 
@@ -79,6 +79,8 @@ class App extends Component {
     } else articleStyles.push('OrangeArticles');//w pozostałych sytuacjach kolor pomarańczowy
 
     return (
+      //opakowanie całości dla @media -<StyleRoot>
+      <StyleRoot>
       <div className='App'>
         <button 
         style={buttonStyles}
@@ -88,6 +90,7 @@ class App extends Component {
         </div>
         
       </div>
+      </StyleRoot>
      );
   }
 }
