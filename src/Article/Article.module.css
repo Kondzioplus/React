@@ -1,0 +1,7 @@
+.violet {
+    color: violet;
+}
+
+.violet:hover {
+    color: darkviolet;
+}

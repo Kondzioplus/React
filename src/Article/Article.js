@@ -1,6 +1,7 @@
 import React from 'react';
 import './Article.css';
 import styled from 'styled-components';
+import styles from './Article.module.css'
 
 const StyledDiv =  styled.div`
          
@@ -32,7 +33,7 @@ const Article = props => {
         //<div className='Article' style={style}>
        <StyledDiv>
             <h2>{props.title}</h2>
-            <p>{props.content}</p>
+            <p className={styles.violet}>{props.content}</p>
             <button onClick={props.deleteClick}>Delete article</button>
             <br />
             <br />
