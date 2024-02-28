@@ -1,6 +1,23 @@
 import React, { Component } from 'react';
 import './App.css'
 import Article from './Article/Article';
+import styled from 'styled-components';
+
+const StyledButton = styled.button`
+  background-color: white;
+  border: 2px solid #326647;
+  color: black;
+  padding: 10px 16px;
+  text-align: center;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  transition-duration: 0,4s;
+  &:hover {
+    background-color: #326647;
+    color: white;
+}`
 
 
 class App extends Component {
@@ -82,9 +99,8 @@ class App extends Component {
       //opakowanie całości dla @media -<StyleRoot>
       
       <div className='App'>
-        <button 
-        style={buttonStyles}
-        onClick={this.toggleArticlesHandler}>Toggle Article</button>
+        <StyledButton 
+        onClick={this.toggleArticlesHandler}>Toggle Article</StyledButton>
         <div className={articleStyles.join(' ')}>
         {articles}
         </div>
