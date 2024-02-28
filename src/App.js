@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 const StyledButton = styled.button`
   background-color: white;
-  border: 2px solid #326647;
+  border: ${props => props.altButton ? '2px solid red' : '2px solid #326647' };
   color: black;
   padding: 10px 16px;
   text-align: center;
@@ -15,7 +15,7 @@ const StyledButton = styled.button`
   margin-bottom: 10px;
   transition-duration: 0,4s;
   &:hover {
-    background-color: #326647;
+    background-color: ${props => props.altButton ? 'red' : '#326647' } ;
     color: white;
 }`
 
@@ -77,14 +77,7 @@ class App extends Component {
          key={article.id} 
         />);
       })
-      //dynamiczne przypisanie stylu
-      buttonStyles.border = '2px solid red';
-
-      buttonStyles.transitionDuration = '0,4s';
-      buttonStyles[':hover'] = {
-        backgroundColor: 'red',
-        color: 'white'
-      }
+      
     }
 // sprawdzanie ilosci atrykułów
     const articleStyles = [];
@@ -99,7 +92,7 @@ class App extends Component {
       //opakowanie całości dla @media -<StyleRoot>
       
       <div className='App'>
-        <StyledButton 
+        <StyledButton altButton={this.state.showArticles} 
         onClick={this.toggleArticlesHandler}>Toggle Article</StyledButton>
         <div className={articleStyles.join(' ')}>
         {articles}
