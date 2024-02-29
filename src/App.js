@@ -1,23 +1,9 @@
 import React, { Component } from 'react';
 import './App.css'
 import Article from './Article/Article';
-import styled from 'styled-components';
+import styles from './App.module.css';
 
-const StyledButton = styled.button`
-  background-color: white;
-  border: ${props => props.altButton ? '2px solid red' : '2px solid #326647' };
-  color: black;
-  padding: 10px 16px;
-  text-align: center;
-  font-size: 20px;
-  cursor: pointer;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  transition-duration: 0,4s;
-  &:hover {
-    background-color: ${props => props.altButton ? 'red' : '#326647' } ;
-    color: white;
-}`
+
 
 
 class App extends Component {
@@ -47,25 +33,8 @@ class App extends Component {
   }
 
   render(){
-    const buttonStyles = {
-      backgroundColor: 'white',
-      border: '2px solid #326647',
-      color: 'black',
-      padding: '10px 16px',
-      textAlign: 'center',
-      fontSize: '20px',
-      cursor: 'pointer',
-      marginTop: '10px',
-      marginBottom: '10px',
-      transitionDuration: '0,4s',
-      ':hover': {
-        backgroundColor: '#326647',
-        color: 'white'
-      }
 
-    }
-
-   
+    let buttonStyles = [styles.toggleButton]; //zmienna dla styli 
     let articles = null;
 
     if (this.state.showArticles){
@@ -77,7 +46,7 @@ class App extends Component {
          key={article.id} 
         />);
       })
-      
+      buttonStyles.push(styles.red);//style dla czerwonego
     }
 // sprawdzanie ilosci atrykułów
     const articleStyles = [];
@@ -92,8 +61,8 @@ class App extends Component {
       //opakowanie całości dla @media -<StyleRoot>
       
       <div className='App'>
-        <StyledButton altButton={this.state.showArticles} 
-        onClick={this.toggleArticlesHandler}>Toggle Article</StyledButton>
+        <button className={buttonStyles.join(' ')} //wywołanie styli
+        onClick={this.toggleArticlesHandler}>Toggle Article</button>
         <div className={articleStyles.join(' ')}>
         {articles}
         </div>
