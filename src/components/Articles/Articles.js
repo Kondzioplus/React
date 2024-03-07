@@ -3,6 +3,8 @@ import Article from "./Article/Article";
 
 const articles = props => {
 
+  console.log('articles');
+
     const articleStyles = [];
     if (props.articles.length ===1 ) {
       articleStyles.push('OneArticle');

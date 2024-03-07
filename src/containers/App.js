@@ -7,6 +7,21 @@ import Header from '../components/Header/Header';
 
 
 class App extends Component {
+// Constructor w starych wersjach
+  constructor(props){
+    console.log('constructor');
+    super(props);
+  }
+
+  static getDerivedStateFromProps(props, state){
+    console.log('getDerivedStateFromProps');
+    return state;
+  }
+
+  //puszczanie zapytań http
+  componentDidMount(){
+    console.log('componentDidMount');
+  }
 
   
  // STATE do przechowywania naszych danych
@@ -33,7 +48,7 @@ class App extends Component {
   }
 
   render(){
-
+    console.log('render');
     let articles = null;
     if(this.state.showArticles){
       articles = <Articles articles={this.state.articles} deleteArticle={this.deleteArticleHandler} />;
