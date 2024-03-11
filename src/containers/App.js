@@ -9,18 +9,27 @@ import Header from '../components/Header/Header';
 class App extends Component {
 // Constructor w starych wersjach
   constructor(props){
-    console.log('constructor');
+    console.log('App constructor');
     super(props);
   }
 
   static getDerivedStateFromProps(props, state){
-    console.log('getDerivedStateFromProps');
+    console.log('App getDerivedStateFromProps');
     return state;
   }
 
   //puszczanie zapytań http
   componentDidMount(){
-    console.log('componentDidMount');
+    console.log('App componentDidMount');
+  }
+
+  componentDidUpdate(){
+    console.log('App componentDidUpdate');
+  }
+
+  shouldComponentUpdate(nextProps, nextState){
+    console.log('App shouldComponentUpdate');
+    return true;
   }
 
   
@@ -48,7 +57,7 @@ class App extends Component {
   }
 
   render(){
-    console.log('render');
+    console.log('App render');
     let articles = null;
     if(this.state.showArticles){
       articles = <Articles articles={this.state.articles} deleteArticle={this.deleteArticleHandler} />;
