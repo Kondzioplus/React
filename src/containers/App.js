@@ -7,6 +7,19 @@ import Header from '../components/Header/Header';
 
 
 class App extends Component {
+
+  // STATE do przechowywania naszych danych
+  state = {
+    articles:[
+      { id: 'asd123', title: "title1", content: "this is content 1"},
+      { id: 'zxc456', title: "title2", content: "this is content 2"},
+      { id: 'qwe789', title: "title3", content: "this is content 3"},
+      { id: 'poi654', title: "title4", content: "this is content 4"},
+    ],
+    showArticles: false,
+    showSeconds: false,
+} 
+
 // Constructor w starych wersjach
   constructor(props){
     console.log('App constructor');
@@ -32,17 +45,11 @@ class App extends Component {
     return true;
   }
 
-  
- // STATE do przechowywania naszych danych
-  state = {
-    articles:[
-      { id: 'asd123', title: "title1", content: "this is content 1"},
-      { id: 'zxc456', title: "title2", content: "this is content 2"},
-      { id: 'qwe789', title: "title3", content: "this is content 3"},
-      { id: 'poi654', title: "title4", content: "this is content 4"},
-    ],
-    showArticles: false
-} 
+  toggleSecondsHandler = () => {
+    const areSecondsVisible = this.state.showSeconds;
+    this.setState({showSeconds: ! areSecondsVisible});
+  }
+ 
 
   toggleArticlesHandler = () => {
     const doesShow = this.state.showArticles;
@@ -59,6 +66,14 @@ class App extends Component {
   render(){
     console.log('App render');
     let articles = null;
+    let seconds = null;
+    //sprawdzanie aktualnej zmiennej ze STATE 
+    if (this.state.showSeconds){
+      const now = new Date();
+      seconds = <h1>{now.getSeconds()}</h1>
+    }
+
+
     if(this.state.showArticles){
       articles = <Articles articles={this.state.articles} deleteArticle={this.deleteArticleHandler} />;
     }
@@ -72,6 +87,8 @@ class App extends Component {
      
       
       <div className='App'>
+      <button onClick={this.toggleSecondsHandler}>Toggle seconds</button>
+      {seconds}
         <Header showArticles={this.state.showArticles} toggleArticles={this.toggleArticlesHandler}/>
         
         {articles}

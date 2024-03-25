@@ -10,7 +10,12 @@ class Articles extends Component {
 
   shouldComponentUpdate(nextProps, nextState){
     console.log('Articles shouldComponentUpdate');
-    return true;
+    if(nextProps.articles !== this.props.articles){
+      return true;
+    } else {
+      return false;
+    }
+    
   }
 
   getSnapshotBeforeUpdate(prevProps, prevState){
