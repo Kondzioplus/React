@@ -17,6 +17,8 @@ const Header = props => {
         buttonStyles.push(styles.red);
       }
 
+      console.log("Header return");
+
     return(
         <div>
         <h1>Article app</h1>
@@ -27,4 +29,4 @@ const Header = props => {
 
 }
 
-export default Header;
+export default React.memo(Header);//optymalizowanie componentu funkcyjnego
