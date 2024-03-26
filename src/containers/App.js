@@ -6,6 +6,7 @@ import Links from '../components/Links/Links';
 
 
 
+
 class App extends Component {
 
   // STATE do przechowywania naszych danych
@@ -94,7 +95,7 @@ class App extends Component {
       <button onClick={this.countHandler}>Count</button><br />
       <button onClick={this.toggleSecondsHandler}>Toggle seconds</button>
       {seconds}
-        <Header showArticles={this.state.showArticles} toggleArticles={this.toggleArticlesHandler}/>
+        <Header showArticles={this.state.showArticles} toggleArticles={this.toggleArticlesHandler} year={1960}/>
         
         {articles}
         <Links />
