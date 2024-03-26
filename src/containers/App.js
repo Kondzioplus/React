@@ -18,6 +18,7 @@ class App extends Component {
     ],
     showArticles: false,
     showSeconds: false,
+    counter: 0,
 } 
 
 // Constructor w starych wersjach
@@ -62,9 +63,16 @@ class App extends Component {
     articles.splice(articleIndex, 1);
     this.setState({articles: articles});
   }
-
+ //Asynchroniczność setState()
+  countHandler = () => {
+    let i;
+    for (i=0 ; i < 20; i++){
+      this.setState((prevState, props) => ({counter: prevState.counter +1}));
+    }
+  }
   render(){
     console.log('App render');
+    console.log("Counter: " + this.state.counter);
     let articles = null;
     let seconds = null;
     //sprawdzanie aktualnej zmiennej ze STATE 
@@ -78,15 +86,12 @@ class App extends Component {
       articles = <Articles articles={this.state.articles} deleteArticle={this.deleteArticleHandler} />;
     }
     
-
    
-
-    
-
     return (
      
       
       <div className='App'>
+      <button onClick={this.countHandler}>Count</button><br />
       <button onClick={this.toggleSecondsHandler}>Toggle seconds</button>
       {seconds}
         <Header showArticles={this.state.showArticles} toggleArticles={this.toggleArticlesHandler}/>
