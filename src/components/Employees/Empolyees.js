@@ -8,7 +8,7 @@ class Employees extends Component {
     
     render(){
         const employees = this.props.employees.map((employee, index) => {
-            return (<Employee name={employee.name} />);
+            return (<Employee key={employee.id} name={employee.employee_name} />);
         });
         return(
             <div className={styles.Employees}>

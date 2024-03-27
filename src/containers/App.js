@@ -10,13 +10,14 @@ class App extends Component {
 
   // STATE do przechowywania naszych danych
   state = {
-    employees: [{name: 'Employee1'}, {name: 'Employee2'}, {name: 'Employee3'}]
+    employees: []
 } 
 
 
   componentDidMount() {
     axios.get('https://dummy.restapiexample.com/api/v1/employees', null).then(response => {
-      console.log(response);
+      const employees = response.data;
+      this.setState({employees: employees});
     });
   }
 
