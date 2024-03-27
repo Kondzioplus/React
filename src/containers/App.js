@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css'
 import Employees from '../components/Employees/Empolyees';
+import axios from 'axios';
 
 
 
@@ -11,6 +12,13 @@ class App extends Component {
   state = {
     employees: [{name: 'Employee1'}, {name: 'Employee2'}, {name: 'Employee3'}]
 } 
+
+
+  componentDidMount() {
+    axios.get('https://dummy.restapiexample.com/api/v1/employees', null).then(response => {
+      console.log(response);
+    });
+  }
 
 
   render(){
