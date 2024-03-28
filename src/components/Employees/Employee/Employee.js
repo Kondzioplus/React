@@ -7,7 +7,7 @@ class Employee extends Component {
 
     render(){
         return(
-            <div className={ styles.Employee}> Name: {this.props.name}</div>
+            <div className={ styles.Employee} onClick={() => this.props.showSelectedEmployee(this.props.id)}> Name: {this.props.name}</div>
         );
     }
 }
