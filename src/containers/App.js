@@ -15,7 +15,7 @@ class App extends Component {
 
 
   componentDidMount() {
-    axios.get('https://dummy.restapiexample.com/api/v1/employees', null).then(response => {
+    axios.get('https://dummyapi.online/api/users', null).then(response => {
       const employees = response.data;
       this.setState({employees: employees});
     });
