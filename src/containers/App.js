@@ -52,6 +52,21 @@ class App extends Component {
     );
   }
 
+  //aktualizacja pracownika
+  updateEmployeeHandler = () => {
+    const id = 2;
+    const employeeToUpdate = {
+      name: 'Konrad',
+      salary: '1500',
+      age: '36'
+    }
+    axios.put('LINK DO REST-API' + id, employeeToUpdate).then(
+      response => {
+        console.log(response);
+      }
+    );
+  }
+
   render(){
     let selectedEmployee = null;
     
@@ -74,6 +89,7 @@ class App extends Component {
         showSelectedEmployee={this.showSelectedEmployeeHandler} />
         <button onCanPlay={this.saveEmployeeHandler} className='UpdateButton'>Save Employee</button>
         <button onCanPlay={this.deleteEmployeeHandler} className='UpdateButton'>Delete Employee</button>
+        <button onCanPlay={this.updateEmployeeHandler} className='UpdateButton'>Update Employee</button>
       </div>
       
      );
