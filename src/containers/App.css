@@ -77,3 +77,8 @@
 .GreenArticles {
   color: green;
 }
+
+.UpdateButton {
+  margin: auto;
+  margin-bottom: 10px;
+}

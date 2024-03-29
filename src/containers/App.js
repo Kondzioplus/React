@@ -30,7 +30,17 @@ class App extends Component {
       }
     );
   }
-
+//tworzymy nowego pracownika do dodania
+  saveEmployeeHandler = () => {
+    const employeeToSave = {
+      name: 'Maria',
+      salary: 4500,
+      age: 25
+    }
+    axios.post('LINK DO API-REST', employeeToSave).then(response => {
+      console.log(response);
+    });
+  }
 
   render(){
     let selectedEmployee = null;
@@ -52,6 +62,7 @@ class App extends Component {
         <Employees 
         employees={this.state.employees} 
         showSelectedEmployee={this.showSelectedEmployeeHandler} />
+        <button onCanPlay={this.saveEmployeeHandler} className='UpdateButton'>Save Employee</button>
       </div>
       
      );
