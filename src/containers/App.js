@@ -42,6 +42,16 @@ class App extends Component {
     });
   }
 
+  //usuwamy pracownika
+  deleteEmployeeHandler = () => {
+    const id = 2;
+    axios.delete('LINK DO API-REST', + id).then(
+      response => {
+        console.log(response);
+      }
+    );
+  }
+
   render(){
     let selectedEmployee = null;
     
@@ -63,6 +73,7 @@ class App extends Component {
         employees={this.state.employees} 
         showSelectedEmployee={this.showSelectedEmployeeHandler} />
         <button onCanPlay={this.saveEmployeeHandler} className='UpdateButton'>Save Employee</button>
+        <button onCanPlay={this.deleteEmployeeHandler} className='UpdateButton'>Delete Employee</button>
       </div>
       
      );
